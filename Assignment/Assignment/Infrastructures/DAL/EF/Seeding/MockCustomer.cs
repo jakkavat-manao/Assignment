@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Assignment.Infrastructures.DAL.Seeding
+namespace Assignment.Infrastructures.DAL.EF.Seeding
 {
     public static class MockCustomer
     {

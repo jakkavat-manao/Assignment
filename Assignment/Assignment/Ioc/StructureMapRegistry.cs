@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using WebAPI.Infrastructure.Repositories;
+using WebAPI.Infrastructure.DAL.EF.Repositories;
 
 namespace Assignment.Ioc
 {

@@ -1,5 +1,5 @@
 ﻿using Assignment.Infrastructures.DAL;
-using Assignment.Infrastructures.DAL.Seeding;
+using Assignment.Infrastructures.DAL.EF.Seeding;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using System;
@@ -8,7 +8,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Assignment.Infrastructures.DAL
+namespace Assignment.Infrastructures.DAL.EF
 {
     public static class DBContextExtensions
     {

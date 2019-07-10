@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Assignment.Infrastructures.DAL.Mappings
+namespace Assignment.Infrastructures.DAL.EF.Mappings
 {
     public static class TransactionMap
     {

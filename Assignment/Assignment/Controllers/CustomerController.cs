@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 using Assignment.Core.Domain.Entities;
 using Assignment.Core.DTO;
 using Microsoft.AspNetCore.Mvc;
-using WebAPI.Infrastructure.Repositories;
 using Assignment.Helpers;
+using WebAPI.Infrastructure.DAL.EF.Repositories;
 
 namespace Assignment.Controllers
 {

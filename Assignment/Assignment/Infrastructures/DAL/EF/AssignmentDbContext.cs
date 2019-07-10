@@ -1,13 +1,13 @@
 ﻿using Assignment.Core.Domain.Base;
 using Assignment.Core.Domain.Entities;
-using Assignment.Infrastructures.DAL.Mappings;
+using Assignment.Infrastructures.DAL.EF.Mappings;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Assignment.Infrastructures.DAL
+namespace Assignment.Infrastructures.DAL.EF
 {
     public class AssignmentDbContext : DbContext
     {

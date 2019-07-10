@@ -1,13 +1,14 @@
 ﻿using Assignment.Core.Domain.Entities;
 using Assignment.Core.DTO;
 using Assignment.Infrastructures.DAL;
+using Assignment.Infrastructures.DAL.EF;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace WebAPI.Infrastructure.Repositories
+namespace WebAPI.Infrastructure.DAL.EF.Repositories
 {
     public class CustomerRepository : ICustomerRepository
     {

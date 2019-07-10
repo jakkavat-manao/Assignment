@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Assignment.Infrastructures;
 using Assignment.Infrastructures.DAL;
+using Assignment.Infrastructures.DAL.EF;
 using Assignment.Ioc;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
