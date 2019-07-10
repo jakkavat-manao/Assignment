@@ -6,6 +6,7 @@ using Assignment.Core.Domain.Entities;
 using Assignment.Core.DTO;
 using Assignment.Core.Query;
 using Microsoft.AspNetCore.Mvc;
+using WebAPI.Infrastructure.Repositories;
 
 namespace Assignment.Controllers
 {
@@ -13,11 +14,18 @@ namespace Assignment.Controllers
     [ApiController]
     public class CustomerController : ControllerBase
     {
+        private readonly ICustomerRepository customerRepository;
 
-        [HttpGet("{id}")]
-        public ActionResult<string> Get(int id)
+        public CustomerController(ICustomerRepository customerRepository)
         {
-            return "value";
+            this.customerRepository = customerRepository;
+        }
+
+
+        [HttpGet("get-all")]
+        public ActionResult<IEnumerable<Customer>> Get(int id)
+        {
+            return this.customerRepository.GetAll().ToList();
         }
 
         [HttpGet("GetById")]
