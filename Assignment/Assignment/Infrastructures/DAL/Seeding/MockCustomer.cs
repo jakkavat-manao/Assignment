@@ -13,7 +13,7 @@ namespace Assignment.Infrastructures.DAL.Seeding
             var customer1 = new Customer()
             {
                 Email = "test@test.com",
-                Mobile = 0912224212,
+                Mobile = "0912224212",
                 Name = "test test",
                 Transactions = new List<Transaction>()
             };

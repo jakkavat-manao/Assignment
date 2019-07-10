@@ -71,8 +71,11 @@ namespace Assignment
                     var services = serviceScope.ServiceProvider;
                     var context = services.GetService<AssignmentDbContext>();
 
-                    context.Database.Migrate();
-                    context.EnsureSeeded();
+                    if (!context.AllMigrationsApplied())
+                    {
+                        context.Database.Migrate();
+                        context.EnsureSeeded();
+                    }
                 }
 
             }

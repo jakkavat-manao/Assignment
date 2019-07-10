@@ -1,4 +1,5 @@
 ﻿using Assignment.Core.Domain.Entities;
+using Assignment.Core.DTO;
 using Assignment.Infrastructures.DAL;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -15,11 +16,11 @@ namespace WebAPI.Infrastructure.Repositories
         {
             this.assignmentDbContext = assignmentDbContext;
         }
-        public IEnumerable<Customer> GetAll()
+        public IEnumerable<CustomerDTO> GetAll()
         {
-            return assignmentDbContext.Customers.Include(x => x.Transactions);
+            return assignmentDbContext.Customers.Include(x => x.Transactions).Select(x => x.ToDTO());
         }
-        public bool Add(Customer item)
+        public bool Add(CustomerDTO item)
         {
             throw new NotImplementedException();
         }
@@ -29,7 +30,7 @@ namespace WebAPI.Infrastructure.Repositories
             throw new NotImplementedException();
         }
 
-        public bool Update(Customer item)
+        public bool Update(CustomerDTO item)
         {
             throw new NotImplementedException();
         }

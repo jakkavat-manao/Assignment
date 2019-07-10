@@ -12,6 +12,6 @@ namespace Assignment.Core.DTO
         public string Name { get; set; }
         public string Email { get; set; }
         public string Mobile { get; set; }
-        public IEnumerable<Transaction> transactions { get; set; }
+        public IEnumerable<TransactionDTO> Transactions { get; set; }
     }
 }
