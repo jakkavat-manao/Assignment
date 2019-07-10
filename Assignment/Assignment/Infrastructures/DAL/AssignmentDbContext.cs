@@ -1,5 +1,6 @@
 ﻿using Assignment.Core.Domain.Base;
 using Assignment.Core.Domain.Entities;
+using Assignment.Infrastructures.DAL.Mappings;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -26,7 +27,8 @@ namespace Assignment.Infrastructures.DAL
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            //builder.MapCustomer();
+            builder.MapCustomer();
+            builder.MapTransaction();
             base.OnModelCreating(builder);
         }
 
