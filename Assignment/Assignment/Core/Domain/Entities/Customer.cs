@@ -11,6 +11,6 @@ namespace Assignment.Core.Domain.Entities
         public string Name { get; set; }
         public string Email { get; set; }
         public int Mobile { get; set; }
-        public List<Transaction> Transactions { get; set; }
+        public IEnumerable<Transaction> Transactions { get; set; }
     }
 }
