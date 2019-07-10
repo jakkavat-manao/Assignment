@@ -4,9 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Assignment.Core.Domain.Entities;
 using Assignment.Core.DTO;
-using Assignment.Core.Query;
 using Microsoft.AspNetCore.Mvc;
 using WebAPI.Infrastructure.Repositories;
+using Assignment.Helpers;
 
 namespace Assignment.Controllers
 {
@@ -21,11 +21,48 @@ namespace Assignment.Controllers
             this.customerRepository = customerRepository;
         }
 
-        [HttpGet("get-all")]
-        public ActionResult<IEnumerable<CustomerDTO>> GetAll()
+        [HttpGet("get-by-id")]
+        public ActionResult<CustomerDTO> GetById(int id)
         {
-            return customerRepository.GetAll().ToList();
+            if (!id.IsValidCustomerId())
+                return BadRequest();
+
+            var customer = customerRepository.GetByCustomerId(id);
+
+            if (customer == null)
+                return NotFound();
+
+            return customer;
         }
+
+        [HttpGet("get-by-email")]
+        public ActionResult<CustomerDTO> GetByEmail(string email)
+        {
+            if (!email.IsValidEmail())
+                return BadRequest();
+
+            var customer = customerRepository.GetByCustomerEmail(email);
+
+            if (customer == null)
+                return NotFound();
+
+            return customer;
+        }
+
+        [HttpGet("get-by-id-and-email")]
+        public ActionResult<CustomerDTO> GetByIdAndEmail(int id, string email)
+        {
+            if (!email.IsValidEmail() || !id.IsValidCustomerId())
+                return BadRequest();
+
+            var customer = customerRepository.GetByIdAndEmail(id, email);
+
+            if (customer == null)
+                return NotFound();
+
+            return customer;
+        }
+
 
     }
 }

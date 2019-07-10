@@ -34,5 +34,23 @@ namespace WebAPI.Infrastructure.Repositories
         {
             throw new NotImplementedException();
         }
+
+        public CustomerDTO GetByCustomerId(int id)
+        {
+            var customers = assignmentDbContext.Customers.Include(x => x.Transactions);
+            return customers.Where(x => x.Id == id).Select(x => x.ToDTO()).SingleOrDefault();
+        }
+
+        public CustomerDTO GetByCustomerEmail(string email)
+        {
+            var customers = assignmentDbContext.Customers.Include(x => x.Transactions);
+            return customers.Where(x => x.Email == email).Select(x => x.ToDTO()).SingleOrDefault();
+        }
+
+        public CustomerDTO GetByIdAndEmail(int id, string email)
+        {
+            var customers = assignmentDbContext.Customers.Include(x => x.Transactions);
+            return customers.Where(x => x.Email == email && x.Id == id).Select(x => x.ToDTO()).SingleOrDefault();
+        }
     }
 }

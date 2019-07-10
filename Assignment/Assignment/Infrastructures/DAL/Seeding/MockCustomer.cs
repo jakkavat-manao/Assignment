@@ -18,7 +18,26 @@ namespace Assignment.Infrastructures.DAL.Seeding
                 Transactions = new List<Transaction>()
             };
 
+            var customer2 = new Customer()
+            {
+                Email = "jakkavat@test.com",
+                Mobile = "0914356894",
+                Name = "jakkavat manao",
+                Transactions = new List<Transaction>()
+            };
+
+            var customer3 = new Customer()
+            {
+                Email = "jakkavat_test@test.com",
+                Mobile = "0914356895",
+                Name = "jakkavat manao2",
+                Transactions = new List<Transaction>()
+            };
+
+
             context.Add(customer1);
+            context.Add(customer2);
+            context.Add(customer3);
             context.SaveChanges();
         }
     }

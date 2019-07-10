@@ -21,10 +21,11 @@ namespace Assignment.Core.Domain.Entities
         {
             return new TransactionDTO()
             {
-                Date = Date,
-                Amount = Amount,
+                Id = Id,
+                Date = Date.ToString("dd/MM/yyyy hh:mm"),
+                Amount = Amount.ToString("F"),
                 Currency = Currency,
-                Status = Status
+                Status = Status.ToString()
             };
         }
 

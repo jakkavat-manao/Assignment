@@ -10,5 +10,8 @@ namespace WebAPI.Infrastructure.Repositories
 {
     public interface ICustomerRepository: IRepository<CustomerDTO>
     {
+        CustomerDTO GetByCustomerId(int id);
+        CustomerDTO GetByCustomerEmail(string email);
+        CustomerDTO GetByIdAndEmail(int id, string email);
     }
 }
