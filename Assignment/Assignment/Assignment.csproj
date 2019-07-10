@@ -6,7 +6,6 @@
 
   <ItemGroup>
     <Folder Include="Infrastructures\DAL\Mappings\" />
-    <Folder Include="Infrastructures\DAL\Seeding\" />
     <Folder Include="wwwroot\" />
   </ItemGroup>
 

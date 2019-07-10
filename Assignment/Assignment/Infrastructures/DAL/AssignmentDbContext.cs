@@ -16,11 +16,11 @@ namespace Assignment.Infrastructures.DAL
 
         public AssignmentDbContext(DbContextOptions<AssignmentDbContext> options) : base(options)
         {
-
+           
         }
 
-        public DbSet<Customer> CustomersDbSet { get; set; }
-        public DbSet<Transaction> TransactionsDbSet { get; set; }
+        public DbSet<Customer> Customers { get; set; }
+        public DbSet<Transaction> Transactions { get; set; }
 
     }
 }

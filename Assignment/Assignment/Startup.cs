@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Assignment.Infrastructures;
 using Assignment.Infrastructures.DAL;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -49,6 +50,20 @@ namespace Assignment
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+
+                using (var serviceScope = app.ApplicationServices.CreateScope())
+                {
+                    var services = serviceScope.ServiceProvider;
+                    var context = services.GetService<AssignmentDbContext>();
+
+                    if (!context.AllMigrationsApplied())
+                    {
+                        context.Database.Migrate();
+                        context.EnsureSeeded();
+                    }
+
+                }
+
             }
 
             // Enable middleware to serve generated Swagger as a JSON endpoint.
