@@ -24,8 +24,8 @@ namespace Assignment.Controllers
         [HttpGet("get-by-id")]
         public ActionResult<CustomerDTO> GetById(int id)
         {
-            if (!id.IsValidCustomerId())
-                return BadRequest();
+            if (ValidateExtension.ValidateCustomer(id) != null)
+                return ValidateExtension.ValidateCustomer(id);
 
             var customer = customerRepository.GetByCustomerId(id);
 
@@ -38,8 +38,8 @@ namespace Assignment.Controllers
         [HttpGet("get-by-email")]
         public ActionResult<CustomerDTO> GetByEmail(string email)
         {
-            if (!email.IsValidEmail())
-                return BadRequest();
+            if (ValidateExtension.ValidateCustomer(email) != null)
+                return ValidateExtension.ValidateCustomer(email);
 
             var customer = customerRepository.GetByCustomerEmail(email);
 
@@ -52,8 +52,8 @@ namespace Assignment.Controllers
         [HttpGet("get-by-id-and-email")]
         public ActionResult<CustomerDTO> GetByIdAndEmail(int id, string email)
         {
-            if (!email.IsValidEmail() || !id.IsValidCustomerId())
-                return BadRequest();
+            if (ValidateExtension.ValidateCustomer(id, email) != null)
+                return ValidateExtension.ValidateCustomer(id, email);
 
             var customer = customerRepository.GetByIdAndEmail(id, email);
 
