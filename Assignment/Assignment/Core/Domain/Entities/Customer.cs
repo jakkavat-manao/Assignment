@@ -10,11 +10,8 @@ namespace Assignment.Core.Domain.Entities
 {
     public class Customer : EntityBase<int>
     {
-        [StringLength(30)]
         public string Name { get; set; }
-        [StringLength(25)]
         public string Email { get; set; }
-        [StringLength(10)]
         public string Mobile { get; set; }
         public IEnumerable<Transaction> Transactions { get; set; }
 
