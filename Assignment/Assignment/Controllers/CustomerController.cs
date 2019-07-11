@@ -7,6 +7,9 @@ using Assignment.Core.DTO;
 using Microsoft.AspNetCore.Mvc;
 using Assignment.Helpers;
 using WebAPI.Infrastructure.DAL.EF.Repositories;
+using Assignment.ActionFilters;
+using System.ComponentModel.DataAnnotations;
+using Assignment.ActionFilters.Customer;
 
 namespace Assignment.Controllers
 {
@@ -22,45 +25,39 @@ namespace Assignment.Controllers
         }
 
         [HttpGet("get-by-id")]
+        [ValidateGetById]
         public ActionResult<CustomerDTO> GetById(int id)
         {
-            if (ValidateExtension.ValidateCustomer(id) != null)
-                return ValidateExtension.ValidateCustomer(id);
-
             var customer = customerRepository.GetByCustomerId(id);
 
             if (customer == null)
                 return NotFound();
 
-            return customer;
+            return new ObjectResult(customer);
         }
 
         [HttpGet("get-by-email")]
+        [ValidateGetByEmail]
         public ActionResult<CustomerDTO> GetByEmail(string email)
         {
-            if (ValidateExtension.ValidateCustomer(email) != null)
-                return ValidateExtension.ValidateCustomer(email);
-
             var customer = customerRepository.GetByCustomerEmail(email);
 
             if (customer == null)
                 return NotFound();
 
-            return customer;
+            return new ObjectResult(customer);
         }
 
         [HttpGet("get-by-id-and-email")]
+        [ValidateGetByIdAndEmail]
         public ActionResult<CustomerDTO> GetByIdAndEmail(int id, string email)
         {
-            if (ValidateExtension.ValidateCustomer(id, email) != null)
-                return ValidateExtension.ValidateCustomer(id, email);
-
             var customer = customerRepository.GetByIdAndEmail(id, email);
 
             if (customer == null)
                 return NotFound();
 
-            return customer;
+            return new ObjectResult(customer);
         }
 
 
