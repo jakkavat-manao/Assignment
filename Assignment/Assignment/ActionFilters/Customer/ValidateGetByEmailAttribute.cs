@@ -33,7 +33,7 @@ namespace Assignment.ActionFilters.Customer
             
             if (context.ActionArguments.Select(x => x.Key).Contains("email"))
             {
-                if (!context.ActionArguments.Select(x => (string)x.Value).SingleOrDefault().IsValidEmail())
+                if (!ValidateExtension.IsValidEmail(context.ActionArguments.Select(x => (string)x.Value).SingleOrDefault()))
                     context.ModelState.AddModelError("error", $"Invalid Email");
             }
 

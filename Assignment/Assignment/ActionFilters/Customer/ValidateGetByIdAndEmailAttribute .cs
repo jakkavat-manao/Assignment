@@ -43,13 +43,13 @@ namespace Assignment.ActionFilters.Customer
 
             if (context.ActionArguments.Select(x => x.Key).Contains("email"))
             {
-                if (!context.ActionArguments.Where(x => x.Key == "email").Select(x => (string)x.Value).SingleOrDefault().IsValidEmail())
+                if (!ValidateExtension.IsValidEmail(context.ActionArguments.Where(x => x.Key == "email").Select(x => (string)x.Value).SingleOrDefault()))
                     context.ModelState.AddModelError("error", $"Invalid Email");
             }
 
             if (context.ActionArguments.Select(x => x.Key).Contains("id"))
             {
-                if (!context.ActionArguments.Where(x => x.Key == "id").Select(x => (int)x.Value).SingleOrDefault().IsValidCustomerId())
+                if (!ValidateExtension.IsValidCustomerId(context.ActionArguments.Where(x => x.Key == "id").Select(x => (int)x.Value).SingleOrDefault()))
                     context.ModelState.AddModelError("error", $"Invalid Customer ID");
             }
 

@@ -33,7 +33,7 @@ namespace Assignment.ActionFilters.Customer
 
             if (context.ActionArguments.Select(x => x.Key).Contains("id"))
             {
-                if (!context.ActionArguments.Select(x => (int)x.Value).SingleOrDefault().IsValidCustomerId())
+                if (!ValidateExtension.IsValidCustomerId(context.ActionArguments.Select(x => (int)x.Value).SingleOrDefault()))
                     context.ModelState.AddModelError("error", $"Invalid Customer ID");
             }
 
